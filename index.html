@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Showdown</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="start-screen"> <!--**********************start-screen-->
+        <div id="start-screen-text">
+            <p>Gordon Ramsay's</p>
+            <h1>CULINARY SHOWDOWN</h1>
+        </div>
+        <div id="start-wrapper">
+            <div>
+                <img id="ramsey" src="./assets/ramsay.gif" alt="">
+            </div>
+            <div id="start-buttons-wrapper">    
+                <button class="start-screen-button" onclick="playGame()">PLAY</button>
+                <button class="start-screen-button" onclick="openSettings()">SETTINGS</button>
+            </div>    
+        </div>
+    </div> <!--**********************start-screen end-->
+
+    <div id="settings"><!--**********************settings-->
+        <h1>SETTINGS</h1>
+        <div id="audio-button-wrapper"><button class="settings-button" onclick="toggleAudio()">AUDIO</button><img id="audio-icon" src="" alt=""></div><br>
+        <button class="settings-button" onclick="backHome()">BACK</button>
+    </div><!--**********************settings end-->
+
+    <div id="story"><!--**********************story-->
+        <p id="story-text">
+            You, a passionate and ambitious chef, have just been hired by the renowned Gordon Ramsay and find yourself standing in a bustling kitchen, ready to embark on a culinary journey of a lifetime. The stainless steel surfaces gleam under the bright lights, and the savory aroma of various ingredients fills the air. Gordon Ramsay, with his trademark intensity, welcomes you with a firm handshake.
+        </p>
+        <button id="next-button" class="story-button" onclick="progressStory()">NEXT</button>
+        <button id="skip-button" class="story-button" onclick="skipStory()">SKIP STORY</button>
+    </div><!--**********************story end-->
+
+    <div id="character-select"><!--**********************character select-->
+        <div id="username-page">
+            <h1>What is your name chef?</h1>
+            <input id="username-input" type="text" placeholder="Enter Username"><button onclick="submitUsername()">Submit</button>
+        </div>
+        <div id="choose-character">
+            <h1 id="welcome">WELCOME CHEF</h1>
+            <h1>CHOOSE YOUR CHARACTER:</h1>
+            <div id="button-wrapper">
+                <button class="character-button" onclick="selectChar('mario')">
+                    <img src="./assets/mario-chef.png" alt="">
+                </button>
+                <button class="character-button" onclick="selectChar('chicken')">
+                    <img src="./assets/chicken-chef.png" alt="">
+                </button>
+                <button class="character-button" onclick="selectChar('peppino')">
+                    <img src="./assets/peppino.png" alt="">
+                </button>
+            </div>
+        </div>
+    </div> <!--**********************character select end-->
+
+    <div id="map-area"><!--**********************map-->
+        <canvas id="map"></canvas>
+    </div><!--**********************map end-->
+
+    <div id="level-1"><!--**********************level 1-->
+        <div id="level-1-instructions">
+            <h1 id="level-1-header">Weclome To Bobby's Burgers</h1>
+            <p>The first restaurant you visit is a vibrant burger joint, where a seasoned chef, who is also the owner, named Bobby awaits you. The atmosphere is electric as the cook-off is about to begin. Bobby, known for his mouth watering burgers, fires up his stove and gets ready to cook!</p>
+            <h1>How the game works:</h1>
+            <p>You will be prompted with ingredients that show up under the plate. You must type the ingredient out and if it is correct, it will appear on the plate.<br><span class="important">Everything is in lowercase! Make sure to include spaces when necessary! Hit enter after every ingredient! </span><br>You have 30 seconds to complete your dish. If you don't finish in the alotted time, you lose and will have to restart your journey!</p>
+            <button onclick="beginGame1()">Begin Showdown!</button>
+        </div>
+        <div id="game-1-wrapper">
+            <p id="countdown-1"></p>
+            <div id="game-1-area">
+                <div class="column">
+                    <img id="level-1-char" src="" alt="">
+                    <form action="" id="password-form-1"></form>
+                </div>
+                <div class="column">
+                    <div id="cook-area">
+                        <div id="burger-wrapper"></div>
+                    </div>
+                </div>
+                <div class="column opponent">
+                    <img id="opponent-1" src="./assets/chef-1.gif" alt="">
+                    <img id="opponent-1-stove" src="./assets/oven.png" alt="">
+                </div>
+            </div>
+            <p id="ingredient-1-text">Ingredient: <span id="ingredient-1">Bun</span></p>
+            <button id="open-story-1" onclick="openStory1()">Next</button>
+            <button id="end-1" onclick="endGame()">RETRY</button>
+        </div>
+        <div id="story-1"><!--**********************story-->
+            <p id="story-1-text">
+                The kitchen was a battlefield of flavors and techniques. In the end, your gourmet burger triumphs. As the judges praise you for your dish, Ramsay nods approvingly. "Well done, lad! You've captured the essence of a true burger in your dish. Keep it up," Ramsay praises, a hint of a smile on his face. The victory at the burger joint propels you forward with newfound confidence.
+            </p>
+            <button type="button" id="next-1-button" class="story-1-button" onclick="progressStory1()">NEXT</button>\
+        </div><!--**********************story end-->
+    </div><!--**********************level 1 end-->
+
+    <div id="level-2"><!--**********************level 2-->
+        <div id="level-2-instructions">
+            <h1 id="level-2-header">Weclome To Mamma Mia Pizzeria</h1>
+            <p>The next restaurant you find yourself at is a lively pizzeria, where a seasoned chef named Sergio awaits you. The atmosphere is vibrant as the pizza cook-off is about to begin. Sergio, known for his authentic Italian pizza, is ready to put up a fight.</p>
+            <h1>How the game works:</h1>
+            <p>You will be prompted with ingredients that show up under the plate. You must type the ingredient out and if it is correct, it will appear on the plate.<br><span class="important">Everything is in lowercase! Make sure to include spaces when necessary! Hit enter after every ingredient! </span><br>You have 30 seconds to complete your dish. If you don't finish in the alotted time, you lose and will have to restart your journey!</p>
+            <button onclick="beginGame2()">Begin Showdown!</button>
+        </div>
+        <div id="game-2-wrapper">
+            <p id="countdown-2"></p>
+            <div id="game-2-area">
+                <div class="column">
+                    <img id="level-2-char" src="" alt="">
+                    <form action="" id="password-form-2"></form>
+                </div>
+                <div class="column">
+                    <div id="cook-2-area">
+                        <div id="pizza-wrapper"></div>
+                    </div>
+                </div>
+                <div class="column opponent">
+                    <img id="opponent-2" src="./assets/chef-2.gif" alt="">
+                    <img id="opponent-2-stove" src="./assets/oven.png" alt="">
+                </div>
+            </div>
+            <p id="ingredient-2-text">Ingredient: <span id="ingredient-2">Dough</span></p>
+            <button id="open-story-2" onclick="openStory2()">Next</button>
+            <button id="end-2" onclick="endGame()">RETRY</button>
+        </div>
+        <div id="story-2"><!--**********************story-->
+            <p id="story-2-text">
+                The kitchen becomes a stage of tossing dough and layering toppings. In the end, your creative pizza triumphs. As the judges savor the flavors, Ramsay gives you his approval. Ramsay, acknowledging your versatility, remarks, "You've proven you can handle diverse cuisines. But remember, the final test awaits. Stay focused."
+            </p>
+            <button type="button" id="next-2-button" class="story-2-button" onclick="progressStory2()">NEXT</button>
+        </div><!--**********************story end-->
+    </div><!--**********************level 2 end-->
+
+    <div id="level-3"><!--**********************level 3-->
+        <div id="level-3-instructions">
+            <h1 id="level-3-header">Weclome To Hell's Kitchen</h1>
+            <p>The time has come to face your final opponent. The final challenge is in Ramsay's restaurant. “That's weird,” you think to yourself as you walk into the restaurant, navigating your way to the kitchen. The atmosphere in Ramsay's kitchen is charged with anticipation. As you prepare for the cook-off, Ramsay walks into the kitchen, a stern expression on his face. "You've come a long way, and you've proven yourself against some of the best. But to be the best, you need to beat me," Ramsay declares, revealing himself as the final opponent.
+                The kitchen buzzes with tension as you and Ramsay are about to face off in the ultimate showdown, both tasked with creating the perfect Beef Wellington.
+            </p>
+            <h1>How the game works:</h1>
+            <p>You will be prompted with ingredients that show up under the plate. You must type the ingredient out and if it is correct, it will appear on the plate.<br><span class="important">Everything is in lowercase! Make sure to include spaces when necessary! Hit enter after every ingredient! </span><br>You have 1 minute to complete your dish. If you don't finish in the alotted time, you lose and will have to restart your journey!</p>
+            <button onclick="beginGame3()">Begin Showdown!</button>
+        </div>
+        <div id="game-3-wrapper">
+            <p id="countdown-3"></p>
+            <div id="game-3-area">
+                <div class="column">
+                    <img id="level-3-char" src="" alt="">
+                    <form action="" id="password-form-3"></form>
+                </div>
+                <div class="column">
+                    <div id="cook-3-area">
+                        <div id="wellington-wrapper"></div>
+                    </div>
+                </div>
+                <div class="column opponent">
+                    <img id="opponent-3" src="./assets/ramsay.gif" alt="">
+                    <img id="opponent-3-stove" src="./assets/oven.png" alt="">
+                </div>
+            </div>
+            <p id="ingredient-3-text">Ingredient: <span id="ingredient-3">Pan</span></p>
+            <button id="open-story-3" onclick="openStory3()">Next</button>
+            <button id="end-3" onclick="endGame()">RETRY</button>
+        </div>
+        <div id="story-3"><!--**********************story-->
+            <p id="story-3-text">
+                The kitchen buzzes with tension as you and Ramsay face off in the ultimate showdown, both tasked with creating the perfect Beef Wellington. The challenge is intense, with the savory aroma of seared beef, duxelles, and puff pastry filling the air. The sound of knives slicing through tender beef and the sizzle of ingredients on the stove create a symphony of culinary expertise.
+            </p>
+            <button type="button" id="next-3-button" class="story-3-button" onclick="progressStory3()">NEXT</button>
+            <button id="end-game" onclick="endGame()">END</button>
+        </div><!--**********************story end-->
+    </div><!--**********************level 3 end-->
+    <div id="audio-sources"> <!--*************************************audio*******************************-->
+    <audio id="title-audio" controls>
+        <source src="./audio/title.mp3" type="audio/ogg">
+        Your browser does not support mp3 audio
+      </audio>
+    <audio id="map-audio" controls>
+        <source src="./audio/map.mp3" type="audio/ogg">
+        Your browser does not support mp3 audio
+    </audio>
+    <audio id="level-1-audio" controls>
+        <source src="./audio/level-1.mp3" type="audio/ogg">
+        Your browser does not support mp3 audio
+    </audio>
+    <audio id="level-2-audio" controls>
+        <source src="./audio/level-2.mp3" type="audio/ogg">
+        Your browser does not support mp3 audio
+    </audio>
+    <audio id="level-3-audio" controls>
+        <source src="./audio/level-3.mp3" type="audio/ogg">
+        Your browser does not support mp3 audio
+    </audio>
+    <audio id="correct-audio" controls>
+        <source src="./audio/correct-guess.mp3" type="audio/ogg">
+        Your browser does not support mp3 audio
+    </audio>
+    <audio id="wrong-audio" controls>
+        <source src="" type="audio/ogg">
+        Your browser does not support mp3 audio
+    </audio>
+    <audio id="win-audio" controls>
+        <source src="./audio/level_win.mp3" type="audio/ogg">
+        Your browser does not support mp3 audio
+    </audio>
+    <audio id="lose-audio" controls>
+        <source src="./audio/game-over.mp3" type="audio/ogg">
+        Your browser does not support mp3 audio
+      </audio>
+    <audio id="end-audio" controls>
+        <source src="./audio/end.mp3" type="audio/ogg">
+        Your browser does not support mp3 audio
+    </audio>
+    </div>
+    <script src="capstone.js"></script>
+</body>
+</html>
