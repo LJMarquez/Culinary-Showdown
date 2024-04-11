@@ -7,16 +7,24 @@ const map = document.getElementById('map-area');
 
 
 const titleAudio = document.getElementById('title-audio');
+titleAudio.volume = 0.25;
 const mapAudio = document.getElementById('map-audio');
+mapAudio.volume = 0.25;
 const level1Audio = document.getElementById('level-1-audio');
+level1Audio.volume = 0.25;
 const level2Audio = document.getElementById('level-2-audio');
+level2Audio.volume = 0.25;
 const level3Audio = document.getElementById('level-3-audio');
+level3Audio.volume = 0.25;
 const correctAudio = document.getElementById('correct-audio');
+correctAudio.volume = 0.25;
 const wrongAudio = document.getElementById('wrong-audio');
 const winAudio = document.getElementById('win-audio');
+winAudio.volume = 0.25;
 const loseAudio = document.getElementById('lose-audio');
+loseAudio.volume = 0.25;
 const endAudio = document.getElementById('end-audio');
-
+endAudio.volume = 0.25;
 
 const cook2Area = document.getElementById('cook-2-area');
 const cook3Area = document.getElementById('cook-3-area');
